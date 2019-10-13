@@ -113,6 +113,7 @@ public final class SmartHomeUnits extends CustomUnits {
     public static final Unit<ElectricInductance> HENRY = addUnit(Units.HENRY);
     public static final Unit<ElectricPotential> VOLT = addUnit(Units.VOLT);
     public static final Unit<ElectricResistance> OHM = addUnit(Units.OHM);
+    public static final Unit<Energy> AMPERE_PER_HOUR = addUnit(new ProductUnit<>(Units.AMPERE.divide(Units.HOUR)));
     public static final Unit<Energy> JOULE = addUnit(Units.JOULE);
     public static final Unit<Energy> WATT_SECOND = addUnit(new ProductUnit<Energy>(Units.WATT.multiply(Units.SECOND)));
     public static final Unit<Energy> WATT_HOUR = addUnit(new ProductUnit<Energy>(Units.WATT.multiply(Units.HOUR)));
@@ -132,6 +133,7 @@ public final class SmartHomeUnits extends CustomUnits {
     public static final Unit<LuminousIntensity> CANDELA = addUnit(Units.CANDELA);
     public static final Unit<MagneticFlux> WEBER = addUnit(Units.WEBER);
     public static final Unit<MagneticFluxDensity> TESLA = addUnit(Units.TESLA);
+    public static final Unit<Power> VOLT_AMPERE = addUnit(new ProductUnit<>(Units.VOLT.multiply(Units.AMPERE)));
     public static final Unit<Power> WATT = addUnit(Units.WATT);
     public static final Unit<Power> DECIBEL_MILLIWATTS = new TransformedUnit<>("dBm",
             MetricPrefix.MILLI(SmartHomeUnits.WATT), new ExpConverter(10.0).concatenate(new MultiplyConverter(0.1)));
@@ -193,6 +195,7 @@ public final class SmartHomeUnits extends CustomUnits {
      */
     static {
         // Ordered alphabetical by name
+        SimpleUnitFormat.getInstance().label(AMPERE_PER_HOUR, "Ah");
         SimpleUnitFormat.getInstance().label(BAR, BAR.getSymbol());
         SimpleUnitFormat.getInstance().label(BIT, BIT.getSymbol());
         SimpleUnitFormat.getInstance().label(BIT_PER_SECOND, "bit/s");
@@ -231,6 +234,7 @@ public final class SmartHomeUnits extends CustomUnits {
         SimpleUnitFormat.getInstance().label(STANDARD_GRAVITY, "gₙ");
         SimpleUnitFormat.getInstance().label(TERABIT, "Tbit");
         SimpleUnitFormat.getInstance().label(TERABIT_PER_SECOND, "Tbit/s");
+        SimpleUnitFormat.getInstance().label(VOLT_AMPERE, "VA");
         SimpleUnitFormat.getInstance().label(WATT_HOUR, "Wh");
         SimpleUnitFormat.getInstance().label(WATT_SECOND, "Ws");
     }
