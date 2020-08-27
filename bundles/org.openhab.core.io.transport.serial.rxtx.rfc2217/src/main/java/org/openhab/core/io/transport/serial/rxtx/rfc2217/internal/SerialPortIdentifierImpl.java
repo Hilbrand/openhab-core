@@ -12,6 +12,7 @@
  */
 package org.openhab.core.io.transport.serial.rxtx.rfc2217.internal;
 
+import java.io.IOException;
 import java.net.URI;
 
 import org.eclipse.jdt.annotation.NonNullByDefault;
@@ -56,7 +57,7 @@ public class SerialPortIdentifierImpl implements SerialPortIdentifier {
             id.getTelnetClient().setConnectTimeout(timeout);
             id.getTelnetClient().connect(uri.getHost(), uri.getPort());
             return new RxTxSerialPort(id);
-        } catch (Exception e) {
+        } catch (final IOException e) {
             throw new IllegalStateException(
                     String.format("Unable to establish remote connection to serial port %s", uri), e);
         }

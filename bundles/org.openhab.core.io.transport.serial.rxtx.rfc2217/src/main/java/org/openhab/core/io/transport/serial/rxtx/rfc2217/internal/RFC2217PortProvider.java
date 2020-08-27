@@ -37,7 +37,7 @@ public class RFC2217PortProvider implements SerialPortProvider {
 
     @Override
     public @Nullable SerialPortIdentifier getPortIdentifier(URI portName) {
-        TelnetSerialPort telnetSerialPort = new TelnetSerialPort();
+        final TelnetSerialPort telnetSerialPort = new SafeTelnetSerialPort();
         telnetSerialPort.setName(portName.toString());
         return new SerialPortIdentifierImpl(telnetSerialPort, portName);
     }
